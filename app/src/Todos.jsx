@@ -1,55 +1,29 @@
 import React from 'react'
-import { useQuery, useMutation } from '@apollo/react-hooks'
-import { gql } from 'apollo-boost'
 
 import TodoList from './TodoList'
 import AddTodoForm from './AddTodoForm'
 
-const GET_TODOS = gql`
-    query GetTodosQuery {
-        todos {
-            id
-            done
-            text
-        }
-    }
-`
-
-const UPDATE_TODO_STATUS = gql`
-    mutation UpdateTodoStatus($id: ID!, $done: Boolean!) {
-        changeTodoStatus(id: $id, done: $done) {
-            id
-            done
-        }
-    } 
-`
+const todoData = [
+    { id: 1, text: "Build a UI", done: true },
+    { id: 2, text: "Add some sweet styles ✨", done: true },
+    { id: 3, text: "Hook up Apollo Client", done: false },
+    { id: 4, text: "Pull to-do items from the API", done: false },
+    { id: 5, text: "Mutate some data", done: false },
+    { id: 6, text: "Update our cache", done: false },
+    { id: 7, text: "Be optimistic!", done: false },
+]
 
 const Todos = () => {
-    const { loading, error, data } = useQuery(GET_TODOS)
-    const [updateTodo] = useMutation(UPDATE_TODO_STATUS)
-
     const completeTodo = (id) => {
-        return updateTodo({
-            variables: { id, done: true }
-        })
+        alert(`Completing todo ${id}`)
     }
 
     const resetTodo = (id) => {
-        return updateTodo({
-            variables: { id, done: false }
-        })
+        alert(`Resetting todo ${id}`)
     }
     
-    if(loading) {
-        return <div>...loading</div>
-    }
-
-    if(error) {
-        return <div>{error.message}</div>
-    }
-
-    const finishedTodos = data.todos.filter((todo) => todo.done === true)
-    const todos = data.todos.filter((todo) => todo.done === false)
+    const finishedTodos = todoData.filter((todo) => todo.done === true)
+    const todos = todoData.filter((todo) => todo.done === false)
 
     return (
         <div className="todos">
