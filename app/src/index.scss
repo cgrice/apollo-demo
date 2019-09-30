@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css?family=Bungee+Inline|Comfortaa&display=swap');
+
+
+$color-background: rgb(200, 200, 200);
+$color-main: #D72638;
+$color-light: #FFFFFF;
+$color-body: #f6f8f9;
+$color-cta: rgb(77, 148, 77);
+$color-dark: #08090A;
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $color-body;
+    font-family: 'Comfortaa', Geneva, Verdana, sans-serif;
+}
+
+header, section {
+    background-color: $color-light;
+    width: 800px;
+    margin: 1em auto;
+    box-shadow: 0 1px 2px 0 rgba(36, 50, 66, 0.14);
+    padding: 0.5em 1em;
+}
+
+header {
+    color: $color-light;
+    background-color: $color-main;
+}
+
+h1 {
+    
+    text-align: center;
+    font-size: 3em;
+    font-family: 'Bungee Inline';
+    margin: 0.2em 0;
+}
+
+h2 {
+    color: $color-dark;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.todo {
+    display: flex;
+    border-top: 1px solid $color-background;
+    padding: 1em 0em;
+    align-items: center;
+}
+
+.todo:first-child {
+    border-top: none;
+}
+
+.todo__text {
+    display: block;
+    flex: 1 1 auto;
+    font-size: 1.2em;
+}
+
+.todo-done .todo__text {
+    text-decoration: line-through;
+    color: #999
+}
+
+.todo__actions {
+    margin-right: 1em;
+}
+
+.todo__actions button {
+    border: none;
+    outline: none;
+    width: 40px;
+    height: 40px;
+    border: 1px solid lighten($color-background, 15%);
+    border-radius: 20px;
+    color: #fff;
+    font-size: 1.5em;
+}
+
+.todo-done .todo__actions button {
+    color: $color-cta;
+    border-color: $color-background;
+}
+
+.todo__actions button:hover {
+    cursor: pointer;
+    border-color: $color-background;
+    color: $color-cta;
+}
+
+.todo-done .todo__actions button:hover {
+    color: darken($color-cta, 10%);
+}
+
+.todolist--empty {
+    color: $color-background;
+    text-align: left;
+    padding: 2em 0;
+}
+
+.addtodo-form {
+    width: 100%;
+    border-bottom: 1px solid $color-background;
+    margin: 1em 0;
+    display: flex;
+    justify-content: center;
+}
+
+.addtodo-input {
+    flex: 1 1 auto;
+    border: none;
+    font-size: 1.2em;
+    outline: none;
+    padding: 0.2em 0;
+}
+
+.addtodo-submit {
+    border: none;
+    outline: none;
+    width: 40px;
+    height: 40px;
+    font-size: 2em;
+    vertical-align: middle;
+    margin-bottom: 0.2em;
+    color: $color-background;
+}
+
+.addto-submit span {
+    display: block;
+}

@@ -1,0 +1,21 @@
+mutation {
+    createTodo(data: { text: "Build a UI", done: true }) { id }
+}
+mutation {
+    createTodo(data: { text: "Add some sweet styles ✨", done: true }) { id }
+}
+mutation {
+    createTodo(data: { text: "Hook up Apollo Client", done: false }) { id }
+}
+mutation {
+    createTodo(data: { text: "Pull to-do items from the API", done: false }) { id }
+}
+mutation {
+    createTodo(data: { text: "Mutate some data", done: false }) { id }
+}
+mutation {
+    createTodo(data: { text: "Update our cache", done: false }) { id }
+}
+mutation {
+    createTodo(data: { text: "Be optimistic!", done: false }) { id }
+}
